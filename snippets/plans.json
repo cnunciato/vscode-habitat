@@ -1,0 +1,129 @@
+{
+  ".source.habitat": {
+    "pkg_name": {
+      "prefix": "pkg_name",
+      "body": "pkg_name=\"${1:package_name}\"",
+      "description": "The name of the package. May contain upper and lowercase letters, numbers, dashes, and underscores. Required."
+    },
+    "pkg_origin": {
+      "prefix": "pkg_origin",
+      "body": "pkg_origin=\"${1:origin_name}\"",
+      "description": "The name of the origin associated with the package. May contain upper and lowercase letters, numbers, dashes, and underscores. Required."
+    },
+    "pkg_version": {
+      "prefix": "pkg_version",
+      "body": "pkg_version=\"${1:0}.${2:1}.${3:0}\"",
+      "description": "The version identifier of the package. By convention, [major].[minor].[patch]. Required."
+    },
+    "pkg_maintainer": {
+      "prefix": "pkg_maintainer",
+      "body": "pkg_maintainer=\"${1:Your Name} <${2:you@example.com}>\"",
+      "description": "The name and email address of the package maintainer. Optional."
+    },
+    "pkg_license": {
+      "prefix": "pkg_license",
+      "body": "pkg_license=('${1:Apache-2.0}')",
+      "description": "An array of valid software licenses that relate to this package. Optional."
+    },
+    "pkg_source": {
+      "prefix": "pkg_source",
+      "body": "pkg_source=\"${1:http://downloads.example.com/somefile.tar.gz}\"",
+      "description": "A URL that specifies the location of a downloadable source-code archive. Optional."
+    },
+    "pkg_filename": {
+      "prefix": "pkg_filename",
+      "body": "pkg_filename=\"${1:somefile.tar.gz}\"",
+      "description": "The desired filename for the downloaded source file. Optional."
+    },
+    "pkg_shasum": {
+      "prefix": "pkg_shasum",
+      "body": "pkg_shasum=\"${1:36658cb768a54c1d4dec43c3116c27ed893e88b02ecfcb44f2166f9c0b7f2a0d}\"",
+      "description": "The sha-256 sum of the downloaded source file. Required if pkg_source is specified, unless the do_verify() callback is overridden; otherwise optional."
+    },
+    "pkg_deps": {
+      "prefix": "pkg_deps",
+      "body": "pkg_deps=(${1:core/glibc})",
+      "description": "An array of package dependencies required at runtime. Optional."
+    },
+    "pkg_build_deps": {
+      "prefix": "pkg_build_deps",
+      "body": "pkg_build_deps=(${1:core/gcc})",
+      "description": "An array of package dependencies required only at build-time. Optional."
+    },
+    "pkg_lib_dirs": {
+      "prefix": "pkg_lib_dirs",
+      "body": "pkg_lib_dirs=(${1:lib})",
+      "description": "An array of paths, relative to the final installation of the software, where libraries can be found. Used to populate LD_FLAGS and LD_RUN_PATH for software that depends on your package. Optional."
+    },
+    "pkg_include_dirs": {
+      "prefix": "pkg_include_dirs",
+      "body": "pkg_include_dirs=(${1:include})",
+      "description": "An array of paths, relative to the final installation of the software, where headers can be found. Used to populate CFLAGS for software that depends on your package."
+    },
+    "pkg_bin_dirs": {
+      "prefix": "pkg_bin_dirs",
+      "body": "pkg_bin_dirs=(${1:bin})",
+      "description": "An array of paths, relative to the final installation of the software, where binaries can be found. Used to populate PATH for software that depends on your package. Optional."
+    },
+    "pkg_pconfig_dirs": {
+      "prefix": "pkg_pconfig_dirs",
+      "body": "pkg_pconfig_dirs=(${1:lib/pkgconfig})",
+      "description": "An array of paths, relative to the final install of the software, where pkg-config metadata (.pc files) can be found. Used to populate PKG_CONFIG_PATH for software that depends on your package. Optional."
+    },
+    "pkg_svc_run": {
+      "prefix": "pkg_svc_run",
+      "body": "pkg_svc_run=\"${1:bin/nginx} ${2:-c} ${3:\\$pkg_svc_config_path/nginx.conf}\"",
+      "description": "The command to be executed by the Supervisor when starting a service. You can omit this setting if your package is not intended to be run directly by a Supervisor. Optional."
+    },
+    "pkg_exports": {
+      "prefix": "pkg_exports",
+      "body": "pkg_exports=(\n  [${1:host}]=${2:server.host}\n  [${3:port}]=${4:server.port}\n)",
+      "description": "An array representing configuration data which should be gossiped to peers. The keys in this array are used with pkg_exposes and for any consuming services that set pkg_binds or pkg_binds_optional. The values represent the TOML path to a value. Optional."
+    },
+    "pkg_exposes": {
+      "prefix": "pkg_exposes",
+      "body": "pkg_exposes=(${1:port})",
+      "description": "An array of pkg_exports keys containing default values for the ports that this package exposes. These values are used as sensible defaults for other tools, such as when exporting a package to a container format. Optional."
+    },
+    "pkg_binds": {
+      "prefix": "pkg_binds",
+      "body": "pkg_binds=(\n  [${1:database}]=\"${2:port} ${3:host}\"\n)",
+      "description": "An associative array of services the package depends on and the configuration keys you expect those services to export (by their pkg_exports). These binds must be set for the Supervisor to load the service. The loaded service will wait to run until its bind becomes available. Optional."
+    },
+    "pkg_binds_optional": {
+      "prefix": "pkg_binds_optional",
+      "body": "pkg_binds=(\n  [${1:storage}]=\"${2:port} ${3:host}\"\n)",
+      "description": "Similar to pkg_binds, an associative array of optional services to connect to. Optional."
+    },
+    "pkg_interpreters": {
+      "prefix": "pkg_interpreters",
+      "body": "pkg_interpreters=(${1:bin/bash})",
+      "description": "An array of interpreters to be used for shebang (#!) lines contained in scripts; used with the fix_interpreter helper. Optional."
+    },
+    "pkg_svc_user": {
+      "prefix": "pkg_svc_user",
+      "body": "pkg_svc_user=\"${1:hab}\"",
+      "description": "The user to run the service as. The default is hab. Optional."
+    },
+    "pkg_svc_group": {
+      "prefix": "pkg_svc_group",
+      "body": "pkg_svc_group=\"${1:hab}\"",
+      "description": "The group to run the service as. The default is hab. Optional."
+    },
+    "pkg_description": {
+      "prefix": "pkg_description",
+      "body": "pkg_description=\"${1:A lovely description of this package.}\"",
+      "description": "A short description of the package. Can be a simple string a multi-line description using Markdown to provide a rich description of your package. Required for core plans, optional otherwise."
+    },
+    "pkg_upstream_url": {
+      "prefix": "pkg_upstream_url",
+      "body": "pkg_upstream_url=\"${1:https://github.com/myrepo}\"",
+      "description": "A URL representing the project homepage or website Optional."
+    },
+    "pkg_scaffolding": {
+      "prefix": "pkg_scaffolding",
+      "body": "pkg_scaffolding=\"${1:core/scaffolding-node}\"",
+      "description": "The Habitat plan scaffolding to use with the plan. Optional."
+    }
+  }
+}

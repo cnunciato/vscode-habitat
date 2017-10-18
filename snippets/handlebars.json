@@ -1,0 +1,54 @@
+{
+  ".source.habitat": {
+    "toLowercase": {
+      "prefix": "toLowercase",
+      "body": "{{ toLowercase \"${1:SOMETHING}\" }}",
+      "description": "Returns the lowercase equivalent of the given variable or literal."
+    },
+    "toUppercase": {
+      "prefix": "toUppercase",
+      "body": "{{ toUppercase \"${1:something}\" }}",
+      "description": "Returns the uppercase equivalent of the given variable or literal."
+    },
+    "strReplace": {
+      "prefix": "strReplace",
+      "body": "{{ strReplace \"${1:somevalue}\" \"${2:replace-this}\" \"${3:with-this}\" }}",
+      "description": "Replaces all matches of a pattern within the given variable or literal."
+    },
+    "pkgPathFor": {
+      "prefix": "pkgPathFor",
+      "body": "{{ pkgPathFor \"${1:core/jre8}\" }}",
+      "description": "Returns the absolute filepath to the package directory of the package best resolved from the given package identifier. The named package must exist in the pkg_deps setting of the plan in which the template resides. Returns empty if otherwise."
+    },
+    "eachAlive": {
+      "prefix": "eachAlive",
+      "body": "{{ ~#eachAlive ${1:bind.backend.members} |${2:member}| }}\n${3:server} {{ ${4:member.sys.ip} }}:{{ ${5:member.cfg.port} }}\n{{ ~/eachAlive }}",
+      "description": "Iterates over a collection of members and renders the template for members that are marked alive."
+    },
+    "toJson": {
+      "prefix": "toJson",
+      "body": "{{ toJson ${1:cfg.some_toml} }}",
+      "description": "Converts TOML configuration to JSON representation. Useful if your application's configuration file is in JSON format and has the same structure as your TOML configuration."
+    },
+    "toToml": {
+      "prefix": "toToml",
+      "body": "{{ toToml ${1:cfg.some_toml} }}",
+      "description": "Filters TOML configuration. Useful if your application uses TOML as its configuration file format, but may have not been designed for Habitat, and you only need certain parts of the configuration data in the rendered TOML file."
+    },
+    "toYaml": {
+      "prefix": "toYaml",
+      "body": "{{ toYaml ${1:cfg.some_toml} }}",
+      "description": "Converts TOML configuration to YAML. Renders a YAML document (with a line beginning with ---), so it must be used to create complete documents; you cannot insert a section of YAML into an existing YAML document with this helper."
+    },
+    "strJoin": {
+      "prefix": "strJoin",
+      "body": "{{ strJoin ${1:['foo', 'bar']} \",\" }}",
+      "description": "Joins a list of strings with the specified separator."
+    },
+    "strConcat": {
+      "prefix": "strConcat",
+      "body": "{{ strConcat \"${1:foo}\" \"${2:bar}\"}}",
+      "description": "Concatenates a set of string arguments into a contiguous string."
+    }
+  }
+}

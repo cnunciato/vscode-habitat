@@ -1,0 +1,129 @@
+{
+  ".source.habitat": {
+    "HAB_AUTH_TOKEN": {
+      "prefix": "$HAB_AUTH_TOKEN",
+      "body": "\\$HAB_AUTH_TOKEN",
+      "description": "Authorization token used to perform privileged API operations against Builder, e.g., uploading packages or keys. No default value."
+    },
+    "HAB_BINLINK_DIR": {
+      "prefix": "$HAB_BINLINK_DIR",
+      "body": "\\$HAB_BINLINK_DIR",
+      "description": "Allows you to change the target directory for the symlink created when you run `hab pkg binlink`. The default value is already included in the $PATH variable inside the studio. Default: /hab/bin."
+    },
+    "HAB_CACHE_KEY_PATH": {
+      "prefix": "$HAB_CACHE_KEY_PATH",
+      "body": "\\$HAB_CACHE_KEY_PATH",
+      "description": "Cache directory for origin signing keys. Default: If running as root, /hab/cache/keys; otherwise $HOME/.hab/cache/keys."
+    },
+    "HAB_BLDR_CHANNEL": {
+      "prefix": "$HAB_BLDR_CHANNEL",
+      "body": "\\$HAB_BLDR_CHANNEL",
+      "description": "The Habitat Builder channel you are subscribing to. Default: stable."
+    },
+    "HAB_BLDR_URL": {
+      "prefix": "$HAB_BLDR_URL",
+      "body": "\\$HAB_BLDR_URL",
+      "description": "The endpoint for communicating with Builder. Used by the Habitat build system and the Supervisor. Default: https://bldr.habitat.sh."
+    },
+    "HAB_DOCKER_OPTS": {
+      "prefix": "$HAB_DOCKER_OPTS",
+      "body": "\\$HAB_DOCKER_OPTS",
+      "description": "When running a studio on a platform that uses Docker (e.g., macOS), additional command line options to be passed to the docker command. No default value.."
+    },
+    "HAB_NOCOLORING": {
+      "prefix": "$HAB_NOCOLORING",
+      "body": "\\$HAB_NOCOLORING",
+      "description": "When set to the lowercase string 'true', unconditionally disables text coloring where possible. No default value."
+    },
+    "HAB_NONINTERACTIVE": {
+      "prefix": "$HAB_NONINTERACTIVE",
+      "body": "\\$HAB_NONINTERACTIVE",
+      "description": "When set to the lowercase string 'true', unconditionally disables interactive progress bars (i.e., 'spinners') where possible. No default value."
+    },
+    "HAB_ORG": {
+      "prefix": "$HAB_ORG",
+      "body": "\\$HAB_ORG",
+      "description": "The organization to use when running with service-group encryption. No default value."
+    },
+    "HAB_ORIGIN": {
+      "prefix": "$HAB_ORIGIN",
+      "body": "\\$HAB_ORIGIN",
+      "description": "The origin name used when building packages. The signing key for this origin is passed to the build system. No default value."
+    },
+    "HAB_ORIGIN_KEYS": {
+      "prefix": "$HAB_ORIGIN_KEYS",
+      "body": "\\$HAB_ORIGIN_KEYS",
+      "description": "A comma-separated list of origin keys to be shared with the build system. No default value."
+    },
+    "HAB_RING": {
+      "prefix": "$HAB_RING",
+      "body": "\\$HAB_RING",
+      "description": "The ring used by the Supervisor when running with wire encryption. No default value."
+    },
+    "HAB_RING_KEY": {
+      "prefix": "$HAB_RING_KEY",
+      "body": "\\$HAB_RING_KEY",
+      "description": "The name of the ring key to be used when running with wire encryption. No default value."
+    },
+    "HAB_STUDIOS_HOME": {
+      "prefix": "$HAB_STUDIOS_HOME",
+      "body": "\\$HAB_STUDIOS_HOME",
+      "description": "The directory in which to create build studios. Default: /hab/studios when running as root; $HOME/.hab/studios otherwise."
+    },
+    "HAB_STUDIO_BACKLINE_PKG": {
+      "prefix": "$HAB_STUDIO_BACKLINE_PKG",
+      "body": "\\$HAB_STUDIO_BACKLINE_PKG",
+      "description": "Overrides the default package identifier for the 'backline' package, which installs the Studio baseline package set. Default: core/hab-backline/{{studio_version}}."
+    },
+    "HAB_STUDIO_ROOT": {
+      "prefix": "$HAB_STUDIO_ROOT",
+      "body": "\\$HAB_STUDIO_ROOT",
+      "description": "Root of the current studio under $HAB_STUDIOS_HOME. Infrequently overridden, no default value."
+    },
+    "HAB_STUDIO_NOSTUDIORC": {
+      "prefix": "$HAB_STUDIO_NOSTUDIORC",
+      "body": "\\$HAB_STUDIO_NOSTUDIORC",
+      "description": "When set to a non-empty value, a .studiorc will not be sourced when entering an interactive Studio via hab studio enter. No default value."
+    },
+    "HAB_STUDIO_SUP": {
+      "prefix": "$HAB_STUDIO_SUP",
+      "body": "\\$HAB_STUDIO_SUP",
+      "description": "Used to customize the arguments passed to an automatically launched Supervisor, or to disable the automatic launching by setting it to false, no, or 0. No default value."
+    },
+    "HAB_UPDATE_STRATEGY_FREQUENCY_MS": {
+      "prefix": "$HAB_UPDATE_STRATEGY_FREQUENCY_MS",
+      "body": "\\$HAB_UPDATE_STRATEGY_FREQUENCY_MS",
+      "description": "Frequency, in milliseconds, to check for updates when running with an update strategy. Default: 60000."
+    },
+    "HAB_USER": {
+      "prefix": "$HAB_USER",
+      "body": "\\$HAB_USER",
+      "description": "The user key to be used when running with service group encryption. No default value."
+    },
+    "HAB_NON_ROOT": {
+      "prefix": "$HAB_NON_ROOT",
+      "body": "\\$HAB_NON_ROOT",
+      "description": "Enables the Supervisor to install packages as non-root user. Warning: It is highly recommended not to use this setting except under very specific circumstances due to associated security risks."
+    },
+    "http_proxy": {
+      "prefix": "$http_proxy",
+      "body": "\\$http_proxy",
+      "description": "A URL for a local HTTP proxy server optionally supporting basic authentication. No default value."
+    },
+    "https_proxy": {
+      "prefix": "$https_proxy",
+      "body": "\\$https_proxy",
+      "description": "A URL for a local HTTPS proxy server optionally supporting basic authentication. No default value."
+    },
+    "no_proxy": {
+      "prefix": "$no_proxy",
+      "body": "\\$no_proxy",
+      "description": "A comma-separated list of domain exclusions for the http_proxy and https_proxy environment variables. No default value."
+    },
+    "SSL_CERT_FILE": {
+      "prefix": "$SSL_CERT_FILE",
+      "body": "\\$SSL_CERT_FILE",
+      "description": "A variable to help you navigate firewalls. No default value."
+    }
+  }
+}

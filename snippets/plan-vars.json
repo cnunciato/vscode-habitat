@@ -1,0 +1,84 @@
+{
+  ".source.habitat": {
+    "pkg_prefix": {
+      "prefix": "$pkg_prefix",
+      "body": "\\$pkg_prefix",
+      "description": "The absolute path for your package."
+    },
+    "pkg_dirname": {
+      "prefix": "$pkg_dirname",
+      "body": "\\$pkg_dirname",
+      "description": "Set to $pkg_name-$pkg_version by default."
+    },
+    "pkg_svc_path": {
+      "prefix": "$pkg_svc_path",
+      "body": "\\$pkg_svc_path",
+      "description": "Where the running service is located. $HAB_ROOT_PATH/svc/$pkg_name by default."
+    },
+    "pkg_svc_data_path": {
+      "prefix": "$pkg_svc_data_path",
+      "body": "\\$pkg_svc_data_path",
+      "description": "Where the running service's data is located. $pkg_svc_path/data by default."
+    },
+    "pkg_svc_files_path": {
+      "prefix": "$pkg_svc_files_path",
+      "body": "\\$pkg_svc_files_path",
+      "description": "Where the gossiped configuration files are located. $pkg_svc_path/files by default."
+    },
+    "pkg_svc_var_path": {
+      "prefix": "$pkg_svc_var_path",
+      "body": "\\$pkg_svc_var_path",
+      "description": "Where the running service variable data is located. $pkg_svc_path/var by default."
+    },
+    "pkg_svc_config_path": {
+      "prefix": "$pkg_svc_config_path",
+      "body": "\\$pkg_svc_config_path",
+      "description": "Where the running service's configuration files are located. $pkg_svc_path/config by default."
+    },
+    "pkg_svc_static_path": {
+      "prefix": "$pkg_svc_static_path",
+      "body": "\\$pkg_svc_static_path",
+      "description": "Where the running service's static data is located. $pkg_svc_path/static by default."
+    },
+    "HAB_CACHE_SRC_PATH": {
+      "prefix": "$HAB_CACHE_SRC_PATH",
+      "body": "\\$HAB_CACHE_SRC_PATH",
+      "description": "The default path where source archives are downloaded, extracted and compiled."
+    },
+    "HAB_CACHE_ARTIFACT_PATH": {
+      "prefix": "$HAB_CACHE_ARTIFACT_PATH",
+      "body": "\\$HAB_CACHE_ARTIFACT_PATH",
+      "description": "The default download path for Habitat packages."
+    },
+    "HAB_PKG_PATH": {
+      "prefix": "$HAB_PKG_PATH",
+      "body": "\\$HAB_PKG_PATH",
+      "description": "The path containing all locally installed Habitat packages."
+    },
+    "PLAN_CONTEXT": {
+      "prefix": "$PLAN_CONTEXT ",
+      "body": "\\$PLAN_CONTEXT ",
+      "description": "The location on your local development machine of the files in your plan directory."
+    },
+    "CFLAGS": {
+      "prefix": "$CFLAGS",
+      "body": "\\$CFLAGS",
+      "description": "C compiler options."
+    },
+    "LDFLAGS": {
+      "prefix": "$LDFLAGS",
+      "body": "\\$LDFLAGS",
+      "description": "C linker options."
+    },
+    "LD_RUN_PATH": {
+      "prefix": "$LD_RUN_PATH",
+      "body": "\\$LD_RUN_PATH",
+      "description": "Path(s) to search for binaries at runtime."
+    },
+    "PREFIX": {
+      "prefix": "$PREFIX",
+      "body": "\\$PREFIX",
+      "description": "Where to install the software. Same as $pkg_prefix."
+    }
+  }
+}

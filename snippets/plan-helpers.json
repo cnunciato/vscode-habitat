@@ -1,0 +1,74 @@
+{
+  ".source.habitat": {
+    "attach": {
+      "prefix": "attach",
+      "body": "attach",
+      "description": "Attaches your script to an interactive debugging session, which lets you check the state of variables, call arbitrary functions, and turn on higher levels of logging by using the set -x command and switch."
+    },
+    "download_file": {
+      "prefix": "download_file",
+      "body": "download_file ${1:http://example.com/files/somefile.tar.gz} ${2:renamed.tar.gz} ${3:optional-shasum}",
+      "description": "Downloads a file from a source URL to a local file and uses an optional shasum to determine if an existing file can be used."
+    },
+    "pkg_path_for": {
+      "prefix": "pkg_path_for",
+      "body": "pkg_path_for ${1:core/curl}",
+      "description": "Returns the path for a build or runtime package dependency. Useful for referencing specific dependencies from within a callback such as do_build() or do_install()"
+    },
+    "fix_interpreter": {
+      "prefix": "fix_interpreter",
+      "body": "fix_interpreter \"${1:node_modules/.bin/*}\" ${2:core/coreutils} ${3:bin/env}",
+      "description": "Edits the shebang (#!) of the target file(s) in-place. Useful for changing hardcoded paths defined by your source files to the equivalent path in a Habitat package. You must include the required package that provides the expected path for the shebang in pkg_deps."
+    },
+    "pkg_interpreter_for": {
+      "prefix": "pkg_interpreter_for",
+      "body": "pkg_interpreter_for ${1:core/coreutils} ${2:bin/env}",
+      "description": "Returns the path for the given package and interpreter by reading it from the INTERPRETERS metadata in the package. The directory of the interpreter needs to be specified, as an interpreter binary might live in bin, sbin, or libexec, depending on the software."
+    },
+    "pkg_version": {
+      "prefix": "pkg_version",
+      "body": "pkg_version() {\n  ${1:cat \\$SRC_PATH/version.txt}\n}",
+      "description": "An optional way to override the value of $pkg_version. The function must print the computed version string to standard output and will be called when the Plan author invokes the update_pkg_version() helper."
+    },
+    "update_pkg_version": {
+      "prefix": "update_pkg_version",
+      "body": "update_pkg_version",
+      "description": "Updates the value for $pkg_version by calling a plan author-provided pkg_version() function. Must be explicitly called in a plan in or after the do_before() build phase but before the do_prepare() phase. The $pkg_version variable will be updated and any other relevant variables will be recomputed. See the Habitat docs for details and examples."
+    },
+    "abspath": {
+      "prefix": "abspath",
+      "body": "abspath ${1:./somefile}",
+      "description": "Returns the absolute path of a relative path."
+    },
+    "exists": {
+      "prefix": "exists",
+      "body": "exists ${1:somecommand}",
+      "description": "Checks that the command exists. Returns 0 if it does, 1 if not."
+    },
+    "build_line": {
+      "prefix": "build_line",
+      "body": "build_line \"${1:Got here.}\"",
+      "description": "Print a line of build output. Takes a string as its only argument."
+    },
+    "debug": {
+      "prefix": "debug",
+      "body": "DEBUG=1\ndebug \"${1:Got here.}\"",
+      "description": "Prints a line only if the $DEBUG environment value is set to 1. The debug function takes a string as its only argument."
+    },
+    "exit_with": {
+      "prefix": "exit_with",
+      "body": "exit_with \"${1:Something bad happened.}\" ${2:1}",
+      "description": "Exits the program with an error message and a status code."
+    },
+    "trim": {
+      "prefix": "trim",
+      "body": "trim \\$somevar",
+      "description": "Trims leading and trailing whitespace characters from a Bash variable."
+    },
+    "record": {
+      "prefix": "record",
+      "body": "record ${1:session-name} ${2:command}",
+      "description": "Takes a session name and command to run as arguments and appends a timestamp to the log file. Alternative to piping build through tee."
+    }
+  }
+}

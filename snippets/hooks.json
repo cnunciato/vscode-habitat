@@ -1,0 +1,164 @@
+{
+  ".source.habitat": {
+    "sys.version": {
+      "prefix": "sys.version",
+      "body": "sys.version",
+      "description": "The version of the Habitat Supervisor."
+    },
+    "sys.member_id": {
+      "prefix": "sys.member_id",
+      "body": "sys.member_id",
+      "description": "The Supervisor's member id."
+    },
+    "sys.ip": {
+      "prefix": "sys.ip",
+      "body": "sys.ip",
+      "description": "The IP address of the running service."
+    },
+    "sys.hostname": {
+      "prefix": "syshostname.",
+      "body": "sys.hostname",
+      "description": "The hostname of the running service. Default: localhost."
+    },
+    "sys.gossip_ip": {
+      "prefix": "sys.gossip_ip",
+      "body": "sys.gossip_ip",
+      "description": "The listening address for the Supervisor's gossip connection."
+    },
+    "sys.gossip_port": {
+      "prefix": "sys.gossip_port",
+      "body": "sys.gossip_port",
+      "description": "The listening port for the Supervisor's gossip connection."
+    },
+    "sys.http_gateway_ip": {
+      "prefix": "sys.http_gateway_ip",
+      "body": "sys.http_gateway_ip",
+      "description": "The listening address for the Supervisor's http gateway."
+    },
+    "sys.http_gateway_port": {
+      "prefix": "sys.http_gateway_port",
+      "body": "sys.http_gateway_port",
+      "description": "The listening port for the Supervisor's http gateway."
+    },
+    "sys.permanent": {
+      "prefix": "sys.permanent",
+      "body": "sys.permanent",
+      "description": "Set to true if a Supervisor is being used as a permanent peer, to increase Ring network traffic stability."
+    },
+    "pkg.ident": {
+      "prefix": "pkg.ident",
+      "body": "pkg.ident",
+      "description": "The fully-qualified identifier of a package. Consists of origin/name/version/release."
+    },
+    "pkg.origin": {
+      "prefix": "pkg.origin",
+      "body": "pkg.origin",
+      "description": "Denotes a particular upstream of a package. Same as the pkg_origin setting in a plan file."
+    },
+    "pkg.name": {
+      "prefix": "pkg.name",
+      "body": "pkg.name",
+      "description": "The name of the package. Same as the pkg_name setting in a plan file."
+    },
+    "pkg.version": {
+      "prefix": "pkg.version",
+      "body": "pkg.version",
+      "description": "The version of a package. Same as the pkg_version setting in a plan file."
+    },
+    "pkg.release": {
+      "prefix": "pkg.release",
+      "body": "pkg.release",
+      "description": "The UTC datetime stamp of when the package was built. This value is specified in YYYYMMDDhhmmss format."
+    },
+    "pkg.deps": {
+      "prefix": "pkg.deps",
+      "body": "pkg.deps",
+      "description": "An array of runtime dependencies for your package. Same as the pkg_deps setting in a plan file."
+    },
+    "pkg.env": {
+      "prefix": "pkg.env",
+      "body": "pkg.env",
+      "description": "The package's system path, built from all of its dependencies' binaries."
+    },
+    "pkg.exposes": {
+      "prefix": "pkg.exposes",
+      "body": "pkg.exposes",
+      "description": "The port(s) to expose for an application or service. Based on the pkg_exposes setting in a plan file."
+    },
+    "pkg.exports": {
+      "prefix": "pkg.exports",
+      "body": "pkg.exports",
+      "description": "A key-value pair in whose keys represent what external services consume. The value is stored in default.toml and provided on request."
+    },
+    "pkg.path": {
+      "prefix": "pkg.path",
+      "body": "pkg.path",
+      "description": "The location where the fully-qualified package is installed."
+    },
+    "pkg.svc_path": {
+      "prefix": "pkg.svc_path",
+      "body": "pkg.svc_path",
+      "description": "The root location of the source files for the Habitat service."
+    },
+    "pkg.svc_config_path": {
+      "prefix": "pkg.svc_config_path",
+      "body": "pkg.svc_config_path",
+      "description": "The location of any configuration files for the Habitat service."
+    },
+    "pkg.svc_data_path": {
+      "prefix": "pkg.svc_data_path",
+      "body": "pkg.svc_data_path",
+      "description": "The location of any data files for the Habitat service."
+    },
+    "pkg.svc_files_path": {
+      "prefix": "pkg.svc_files_path",
+      "body": "pkg.svc_files_path",
+      "description": "The location of any gossiped configuration files for the Habitat service."
+    },
+    "pkg.svc_static_path": {
+      "prefix": "pkg.svc_static_path",
+      "body": "pkg.svc_static_path",
+      "description": "The location of any static content for the Habitat service."
+    },
+    "pkg.svc_var_path": {
+      "prefix": "pkg.svc_var_path",
+      "body": "pkg.svc_var_path",
+      "description": "The location of any variable state data for the Habitat service."
+    },
+    "pkg.svc_pid_file": {
+      "prefix": "pkg.svc_pid_file",
+      "body": "pkg.svc_pid_file",
+      "description": "The location of the Habitat service pid file."
+    },
+    "pkg.svc_run": {
+      "prefix": "pkg.svc_run",
+      "body": "pkg.svc_run",
+      "description": "The location of the run data for the Habitat service."
+    },
+    "pkg.svc_user": {
+      "prefix": "pkg.svc_user",
+      "body": "pkg.svc_user",
+      "description": "The value of the pkg_svc_user setting specified in a plan file."
+    },
+    "pkg.svc_group": {
+      "prefix": "pkg.svc_group",
+      "body": "pkg.svc_group",
+      "description": "The value of pkg_svc_group setting specified in a plan file."
+    },
+    "pkg.svc_user_default": {
+      "prefix": "pkg.svc_user_default",
+      "body": "pkg.svc_user_default",
+      "description": "svc_user_default : The default user determined by the Habitat Supervisor. svc_user_default will contain one of the following values, tested in order"
+    },
+    "pkg.svc_group_default": {
+      "prefix": "pkg.svc_group_default",
+      "body": "pkg.svc_group_default",
+      "description": "The default service group determined by the Habitat Supervisor. Will contain one of the following three values, tested in order: svc_user, if specified in the plan file; hab, if the hab user exists; or the current user id."
+    },
+    "cfg": {
+      "prefix": "cfg",
+      "body": "cfg.${1:some_config}",
+      "description": "The collection of settings defined in your templatized configuration file, whose values are pulled from the default.toml file included in your package."
+    }
+  }
+}

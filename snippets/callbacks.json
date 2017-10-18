@@ -1,0 +1,79 @@
+{
+  ".source.habitat": {
+    "do_begin": {
+      "prefix": "do_begin",
+      "body": "do_begin() {\n  ${1:do_default_begin}\n}",
+      "description": "Used to execute arbitrary commands before anything else happens. Note that at this phase of the build, no dependencies are resolved, the $PATH and environment is not set, and no external source has been downloaded. The default implementation is empty (returns 0)."
+    },
+    "do_before": {
+      "prefix": "do_before",
+      "body": "do_before() {\n  ${1:do_default_before}\n}",
+      "description": "At this phase of the build, the origin key has been identified, all package dependencies have been resolved and downloaded, and the $PATH and environment are set, no source has been downloaded (if pkg_source has been set). This would be a suitable phase in which to compute a dynamic version of a pacakge given the state of a Git repository, make an API call, start timing something, or the like. The default implementation is empty (returns 0)."
+    },
+    "do_download": {
+      "prefix": "do_download",
+      "body": "do_download() {\n  ${1:do_default_download}\n}",
+      "description": "If a pkg_source URL has been specified, the default implementation of this callback downloads the software and places it in $HAB_CACHE_SRC_PATH/$pkg_filename. This phase is skipped if pkg_source is not set, or if the download already exists in the cache."
+    },
+    "do_verify": {
+      "prefix": "do_verify",
+      "body": "do_verify() {\n  ${1:do_default_verify}\n}",
+      "description": "If a pkg_source URL has been specified, the default implementation of this callback uses the value of pkg_shasum to verify the file at $HAB_CACHE_SRC_PATH/$pkg_filename."
+    },
+    "do_clean": {
+      "prefix": "do_clean",
+      "body": "do_clean() {\n  ${1:do_default_clean}\n}",
+      "description": "Cleans up the remnants of any previous build work, ensuring you start with a clean build environment. The default implementation removes the contents of $HAB_CACHE_SRC_PATH/$pkg_dirname."
+    },
+    "do_unpack": {
+      "prefix": "do_unpack",
+      "body": "do_unpack() {\n  ${1:do_default_unpack}\n}",
+      "description": "If a pkg_source URL has been specified, the default implementation of this callback extracts the downloaded source archive into $HAB_CACHE_SRC_PATH. Supported archive extensions are: .tar, .tar.bz2, .tar.gz, .tar.xz, .rar, .zip, .Z and .7z. If the file archive could not be found or has an unsupported extension, then a message will be printed to STDERR with additional information."
+    },
+    "do_prepare": {
+      "prefix": "do_prepare",
+      "body": "do_prepare() {\n  ${1:do_default_prepare}\n}",
+      "description": "At this point in the build process, the source archive, if specified, has been downloaded and unpacked, and build environment variables have been set. This phase is suitable for performing any actions before the package starts building, such as exporting variables, adding symlinks, and the like. The default implementation of this callback is empty (returns 0)."
+    },
+    "do_build": {
+      "prefix": "do_build",
+      "body": "do_build() {\n  ${1:do_default_build}\n}",
+      "description": "This is the phase in which your software is compiled. The default implementation of this callback runs `./configure --prefix=$pkg_prefix && make`, so you should override this callback by supplying your own implementation if you require additional configuration, or if you build your software by other means (e.g., custom make tasks, rake or npm tasks, etc)."
+    },
+    "do_check": {
+      "prefix": "do_check",
+      "body": "DO_CHECK=1\ndo_check() {\n  ${1:return 0}\n}",
+      "description": "This callback is useful for running post-compile tests, but will only be executed when explicitly defined by the plan author AND when a $DO_CHECK environment variable has been set to a non-empty value. It has no default implementation."
+    },
+    "do_install": {
+      "prefix": "do_install",
+      "body": "do_install() {\n  ${1:do_default_install}\n}",
+      "description": "The default implementation is to run `make install` on the source files and place the compiled binaries or libraries in $HAB_CACHE_SRC_PATH/$pkg_dirname. You should override this behavior if you need to perform additional or other installation steps, such as copying files from $HAB_CACHE_SRC_PATH into specific directories, installing pre-built binaries into your package, or the like."
+    },
+    "do_build_config": {
+      "prefix": "do_build_config",
+      "body": "do_build_config() {\n  ${1:do_default_build_config}\n}",
+      "description": "The default implementation of this callback copies the ./config directory and default.toml, relative to the plan file, to into the $pkg_prefix/config directory."
+    },
+    "do_build_service": {
+      "prefix": "do_build_service",
+      "body": "do_build_service() {\n  ${1:do_default_build_service}\n}",
+      "description": "The default implementation of this callback generates the $pkg_prefix/run file, which is used to start a package as a Habitat service. If a file named hooks/run already exists, this step is skipped. Otherwise, the file is created using the value of the pkg_svc_run setting in the plan file."
+    },
+    "do_strip": {
+      "prefix": "do_strip",
+      "body": "do_strip() {\n  ${1:do_default_strip}\n}",
+      "description": "The default implementation of this callback strips any binaries in $pkg_prefix of their debugging symbols, with the overall goal of reducing the ultimate size of the package. You should override this behavior if you want to change how binaries are stripped, which additional binaries located in subdirectories might also need to be stripped, or whether you do not want binaries stripped at all."
+    },
+    "do_after": {
+      "prefix": "do_after",
+      "body": "do_after() {\n  ${1:do_default_after\n}",
+      "description": "At this phase of the build process, the package has been built, installed, and stripped, but its metadata has not yet been written, and it has not yet been signed. The default implementation of this callback is empty (returns 0)."
+    },
+    "do_end": {
+      "prefix": "do_end",
+      "body": "do_end() {\n  ${1:do_default_end}\n}",
+      "description": "Intended for post-build cleanup work, this callback is invoked after the package artifact has been created. You can use this callback to remove any temporary files or perform other post-build cleanup tasks. The default implementation of this callback is empty (returns 0)."
+    }
+  }
+}
