@@ -12,7 +12,7 @@ class Term {
       if (t.name === this.name) {
         this.getTerm();
       }
-    })
+    });
   }
 
   send(command: string, show: boolean = true) {
