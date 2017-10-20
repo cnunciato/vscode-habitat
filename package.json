@@ -1,7 +1,7 @@
 {
     "name": "habitat",
     "displayName": "Habitat",
-    "description": "The official Visual Studio Code extension for Habitat!",
+    "description": "A Visual Studio Code extension for Habitat!",
     "version": "0.1.2",
     "icon": "images/icon.png",
     "repository": {
