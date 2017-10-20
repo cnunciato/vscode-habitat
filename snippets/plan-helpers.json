@@ -26,7 +26,7 @@
       "description": "Returns the path for the given package and interpreter by reading it from the INTERPRETERS metadata in the package. The directory of the interpreter needs to be specified, as an interpreter binary might live in bin, sbin, or libexec, depending on the software."
     },
     "pkg_version": {
-      "prefix": "pkg_version",
+      "prefix": "pkg_version()",
       "body": "pkg_version() {\n  ${1:cat \\$SRC_PATH/version.txt}\n}",
       "description": "An optional way to override the value of $pkg_version. The function must print the computed version string to standard output and will be called when the Plan author invokes the update_pkg_version() helper."
     },

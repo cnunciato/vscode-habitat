@@ -16,31 +16,31 @@
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.habitat.callbacks",
+					"name": "support.function.habitat.callbacks",
 					"match": "\\b(do_(default_)?(?:begin|before|download|verify|clean|unpack|prepare|build|check|install|build_config|build_service|strip|after|end))\\b"
 				},
 				{
-          "name": "keyword.habitat.envs",
+          "name": "variable.other.habitat.envs",
           "match": "\\b(HAB_AUTH_TOKEN|HAB_BINLINK_DIR|HAB_CACHE_KEY_PATH|HAB_BLDR_CHANNEL|HAB_BLDR_URL|HAB_DOCKER_OPTS|HAB_NOCOLORING|HAB_NONINTERACTIVE|HAB_ORG|HAB_ORIGIN|HAB_ORIGIN_KEYS|HAB_RING|HAB_RING_KEY|HAB_STUDIOS_HOME|HAB_STUDIO_BACKLINE_PKG|HAB_STUDIO_ROOT|HAB_STUDIO_NOSTUDIORC|HAB_STUDIO_SUP|HAB_UPDATE_STRATEGY_FREQUENCY_MS|HAB_USER|HAB_NON_ROOT|http_proxy|https_proxy|no_proxy|SSL_CERT_FILE)\\b"
 				},
 				{
-          "name": "keyword.habitat.handlebars",
+          "name": "support.function.habitat.handlebars",
 					"match": "\\b(toLowercase|toUppercase|strReplace|pkgPathFor|eachAlive|toJson|toToml|toYaml|strJoin|strConcat)\\b"
 				},
 				{
-          "name": "keyword.habitat.planHelpers",
-          "match": "\\b(attach|download_file|pkg_path_for|fix_interpreter|pkg_interpreter_for|pkg_version|update_pkg_version|abspath|exists|build_line|debug|exit_with|trim|record)\\b"
+          "name": "support.function.habitat.plan-helpers",
+          "match": "\\b(attach|download_file|pkg_path_for|fix_interpreter|pkg_interpreter_for|pkg_version\\(\\)|update_pkg_version|abspath|exists|build_line|debug|exit_with|trim|record)\\b"
 				},
 				{
-          "name": "keyword.habitat.planVars",
+          "name": "variable.other.habitat.plan-vars",
           "match": "\\b(pkg_prefix|pkg_dirname|pkg_svc_path|pkg_svc_data_path|pkg_svc_files_path|pkg_svc_var_path|pkg_svc_config_path|pkg_svc_static_path|HAB_CACHE_SRC_PATH|HAB_CACHE_ARTIFACT_PATH|HAB_PKG_PATH|PLAN_CONTEXT|CFLAGS|LDFLAGS|LD_RUN_PATH|PREFIX)\\b"
         },
         {
-          "name": "keyword.habitat.plans",
+          "name": "variable.other.habitat.plans",
           "match": "\\b(pkg_name|pkg_origin|pkg_version|pkg_maintainer|pkg_license|pkg_source|pkg_filename|pkg_shasum|pkg_deps|pkg_build_deps|pkg_lib_dirs|pkg_include_dirs|pkg_bin_dirs|pkg_pconfig_dirs|pkg_svc_run|pkg_exports|pkg_exposes|pkg_binds|pkg_binds_optional|pkg_interpreters|pkg_svc_user|pkg_svc_group|pkg_description|pkg_upstream_url|pkg_scaffolding)\\b"
 				},
 				{
-					"name": "keyword.habitat.hooks",
+					"name": "variable.other.habitat.hooks",
 					"match": "\\b(sys|version|member_id|ip|hostname|gossip_ip|gossip_port|http_gateway_ip|http_gateway_port|permanent|pkg|ident|origin|name|version|release|deps|env|exposes|exports|path|svc_path|svc_config_path|svc_data_path|svc_files_path|svc_static_path|svc_var_path|svc_pid_file|svc_run|svc_user|svc_group|svc_group_default|cfg)\\b"
 				}
       ]
