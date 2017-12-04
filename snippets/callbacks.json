@@ -30,6 +30,11 @@
       "body": "do_unpack() {\n  ${1:do_default_unpack}\n}",
       "description": "If a pkg_source URL has been specified, the default implementation of this callback extracts the downloaded source archive into $HAB_CACHE_SRC_PATH. Supported archive extensions are: .tar, .tar.bz2, .tar.gz, .tar.xz, .rar, .zip, .Z and .7z. If the file archive could not be found or has an unsupported extension, then a message will be printed to STDERR with additional information."
     },
+    "do_setup_environment": {
+      "prefix": "do_setup_environment",
+      "body": "do_setup_environment() {\n ${1:return 0}\n}",
+      "description": "This is the phase in which you can define runtime/buildtime environment variables. You can do so using either set_runtime_env, push_runtime_env, set_buildtime_env or push_buildtime_env."
+    },
     "do_prepare": {
       "prefix": "do_prepare",
       "body": "do_prepare() {\n  ${1:do_default_prepare}\n}",

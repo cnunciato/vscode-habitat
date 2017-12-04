@@ -69,6 +69,26 @@
       "prefix": "record",
       "body": "record ${1:session-name} ${2:command}",
       "description": "Takes a session name and command to run as arguments and appends a timestamp to the log file. Alternative to piping build through tee."
+    },
+    "set_runtime_env": {
+      "prefix": "set_runtime_env",
+      "body": "set_runtime_env ${1:variable-name} ${2:value}",
+      "description": "Sets an environment variable to a new value, to be used when running the package, or when used as dependency."
+    },
+    "push_runtime_env": {
+      "prefix": "push_runtime_env",
+      "body": "push_runtime_env ${1:variable-name} ${2:value}",
+      "description": "Pushes value inside an aggregate environment variable which is used when running the package, or when used as dependency."
+    },
+    "set_buildtime_env": {
+      "prefix": "set_buildtime_env",
+      "body": "set_buildtime_env ${1:variable-name} ${2:value}",
+      "description": "Sets an environment variable to a new value, to be used when building the package."
+    },
+    "push_buildtime_env": {
+      "prefix": "push_buildtime_env",
+      "body": "push_buildtime_env ${1:variable-name} ${2:value}",
+      "description": "Pushes value inside an aggregate environment variable which is used when building the package."
     }
   }
 }
