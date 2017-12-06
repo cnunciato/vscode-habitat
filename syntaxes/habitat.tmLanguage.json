@@ -17,7 +17,7 @@
 			"patterns": [
 				{
 					"name": "support.function.habitat.callbacks",
-					"match": "\\b(do_(default_)?(?:begin|before|download|verify|clean|unpack|prepare|build|check|install|build_config|build_service|strip|after|end))\\b"
+					"match": "\\b(do_(default_)?(?:begin|before|download|verify|clean|unpack|setup_environment|prepare|build|check|install|build_config|build_service|strip|after|end))\\b"
 				},
 				{
           "name": "variable.other.habitat.envs",
@@ -29,7 +29,7 @@
 				},
 				{
           "name": "support.function.habitat.plan-helpers",
-          "match": "\\b(attach|download_file|pkg_path_for|fix_interpreter|pkg_interpreter_for|pkg_version\\(\\)|update_pkg_version|abspath|exists|build_line|debug|exit_with|trim|record)\\b"
+          "match": "\\b(attach|download_file|pkg_path_for|fix_interpreter|pkg_interpreter_for|pkg_version\\(\\)|update_pkg_version|abspath|exists|build_line|debug|exit_with|trim|record|set_runtime_env|push_runtime_env|set_buildtime_env|push_buildtime_env)\\b"
 				},
 				{
           "name": "variable.other.habitat.plan-vars",
